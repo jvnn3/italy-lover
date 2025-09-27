@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>意大利 - 欧洲的魅力之国</title>
+    <style>
+        /* 基础样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 头部样式 */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+        
+        header h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        header p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #CD212A;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #F4F5F0;
+            color: #CD212A;
+            transform: translateY(-3px);
+        }
+        
+        /* 导航栏样式 */
+        nav {
+            background-color: #008C45;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav li {
+            margin: 0;
+        }
+        
+        nav a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 20px 30px;
+            transition: background-color 0.3s;
+            font-weight: 500;
+        }
+        
+        nav a:hover {
+            background-color: #006B33;
+        }
+        
+        /* 内容区域样式 */
+        section {
+            padding: 80px 0;
+        }
+        
+        section:nth-child(even) {
+            background-color: #F4F5F0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: #008C45;
+            font-size: 2.5rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background-color: #CD212A;
+            margin: 15px auto;
+        }
+        
+        .content {
+            display: flex;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+        
+        .content:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .text-content {
+            flex: 1;
+            padding: 0 30px;
+        }
+        
+        .image-content {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .image-content img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .image-content:hover img {
+            transform: scale(1.05);
+        }
+        
+        h3 {
+            color: #008C45;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        /* 美食卡片样式 */
+        .food-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+        }
+        
+        .food-card {
+            flex: 1 1 300px;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .food-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .food-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .food-info {
+            padding: 20px;
+        }
+        
+        .food-info h4 {
+            color: #CD212A;
+            margin-bottom: 10px;
+        }
+        
+        /* 页脚样式 */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            color: #CD212A;
+            margin-bottom: 20px;
+        }
+        
+        .copyright {
+            padding-top: 20px;
+            border-top: 1px solid #555;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .content, .content:nth-child(even) {
+                flex-direction: column;
+            }
+            
+            .text-content, .image-content {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+            
+            header h1 {
+                font-size: 2.5rem;
+            }
+            
+            header p {
+                font-size: 1.2rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav a {
+                padding: 15px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部区域 -->
+    <header id="home">
+        <h1>意大利</h1>
+        <p>欧洲的文化与美食之都，拥有丰富的历史遗产和令人惊叹的自然风光</p>
+        <a href="#geography" class="btn">探索意大利</a>
+    </header>
+
+    <!-- 导航栏 -->
+    <nav>
+        <ul>
+            <li><a href="#geography">地理</a></li>
+            <li><a href="#culture">文化</a></li>
+            <li><a href="#history">历史</a></li>
+            <li><a href="#attractions">景点</a></li>
+            <li><a href="#cuisine">美食</a></li>
+        </ul>
+    </nav>
+
+    <!-- 地理部分 -->
+    <section id="geography">
+        <div class="container">
+            <h2 class="section-title">地理</h2>
+            <div class="content">
+                <div class="text-content">
+                    <h3>地中海明珠</h3>
+                    <p>意大利位于欧洲南部，主要由靴子形的亚平宁半岛和两个位于地中海中的大岛西西里岛和撒丁岛组成。意大利国土面积约30万平方公里，其领土包围着两个微型国家——圣马力诺和梵蒂冈。</p>
+                    <p>意大利北部有阿尔卑斯山脉，与法国、瑞士、奥地利和斯洛文尼亚接壤。亚平宁山脉纵贯整个半岛，两侧有丘陵和平原。意大利拥有超过7,600公里的海岸线，濒临地中海、第勒尼安海、爱奥尼亚海和亚得里亚海。</p>
+                    <p>意大利的气候多样，北部属于大陆性气候，冬季寒冷夏季炎热；南部则属于地中海气候，冬季温和夏季干燥炎热。这种多样的地理环境造就了意大利丰富的自然景观和生物多样性。</p>
+                </div>
+                <div class="image-content">
+                    <img src="https://media.istockphoto.com/id/121043068/photo/italy.webp?a=1&b=1&s=612x612&w=0&k=20&c=QtRTQptIIUAmtlacjf9LS5kqeBzk0m3obOWFLgEN1YI=" alt="意大利地理景观">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 文化部分 -->
+    <section id="culture">
+        <div class="container">
+            <h2 class="section-title">文化</h2>
+            <div class="content">
+                <div class="image-content">
+                    <img src="https://images.unsplash.com/photo-1671712734772-69816a25090f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGl0YWx5JTIwbWlsYW58ZW58MHx8MHx8fDA%3D" alt="意大利文化">
+                </div>
+                <div class="text-content">
+                    <h3>艺术与时尚之都</h3>
+                    <p>意大利是欧洲文化的摇篮，曾孕育出罗马文化及伊特拉斯坎文明。13世纪末的意大利更是成为欧洲文艺复兴发源地，拥有众多世界知名的艺术家、音乐家、建筑师和设计师。</p>
+                    <p>意大利在艺术和时尚领域也处于世界领导地位，米兰是意大利的经济及工业中心，也是世界时尚之都。意大利语是音乐界尤其是歌剧界的语言，许多古典音乐术语都源自意大利语。</p>
+                    <p>意大利文化也深深影响了全世界的饮食文化，比萨饼和意大利面等食物已经成为全球流行的美食。意大利人热情好客，家庭观念浓厚，节日和庆典活动丰富多彩。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 历史部分 -->
+    <section id="history">
+        <div class="container">
+            <h2 class="section-title">历史</h2>
+            <div class="content">
+                <div class="text-content">
+                    <h3>从古罗马到现代意大利</h3>
+                    <p>意大利的历史可以追溯到数千年前。古罗马文明从公元前8世纪开始兴起，最终发展成为横跨欧亚非三大洲的庞大帝国。罗马帝国对西方文明的发展产生了深远影响，其法律、语言、建筑和工程技术至今仍在影响着世界。</p>
+                    <p>中世纪时期，意大利半岛分裂为多个城邦和国家。14-16世纪，意大利成为欧洲文艺复兴的中心，涌现出达·芬奇、米开朗基罗等众多艺术巨匠。</p>
+                    <p>1861年，意大利王国成立，实现了国家统一。在两次世界大战中，意大利都扮演了重要角色。1946年，意大利共和国成立，成为今天的意大利。</p>
+                </div>
+                <div class="image-content">
+                    <img src="https://images.unsplash.com/photo-1734374226108-f1aee4e87694?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aXRhbHklMjBoaXN0b3J5fGVufDB8fDB8fHww" alt="意大利历史遗迹">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 景点部分 -->
+    <section id="attractions">
+        <div class="container">
+            <h2 class="section-title">著名景点</h2>
+            <div class="content">
+                <div class="image-content">
+                    <img src="https://images.unsplash.com/photo-1529260830199-42c24126f198?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="意大利景点">
+                </div>
+                <div class="text-content">
+                    <h3>世界文化遗产的宝库</h3>
+                    <p>意大利拥有55项联合国教科文组织世界遗产，是全球拥有世界遗产最多的国家。罗马的历史中心、佛罗伦萨的历史中心、威尼斯及其泻湖等都是著名的世界文化遗产。</p>
+                    <p>罗马的斗兽场、万神殿和古罗马广场是古罗马文明的杰出代表；佛罗伦萨的乌菲兹美术馆和圣母百花大教堂展示了文艺复兴时期的辉煌；威尼斯的圣马可广场和运河系统是独一无二的水上城市景观。</p>
+                    <p>此外，比萨斜塔、庞贝古城遗址、五渔村的彩色房屋、阿马尔菲海岸的壮丽风光以及西西里岛的埃特纳火山等都是意大利不容错过的旅游胜地。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 美食部分 -->
+    <section id="cuisine">
+        <div class="container">
+            <h2 class="section-title">美食</h2>
+            <div class="content">
+                <div class="text-content">
+                    <h3>舌尖上的意大利</h3>
+                    <p>意大利美食以其丰富多样和地域特色闻名于世。从北到南，每个地区都有自己独特的烹饪传统和特色菜肴。意大利菜注重食材的新鲜和质量，简单而美味的烹饪方法保留了食材的原味。</p>
+                    <p>意大利面、比萨、烩饭和橄榄油是意大利美食的代表。意大利也是葡萄酒生产大国，拥有众多世界知名的葡萄酒产区，如托斯卡纳和皮埃蒙特。</p>
+                    <p>意大利的咖啡文化也非常著名，意式浓缩咖啡、卡布奇诺和拿铁等都是源自意大利的咖啡饮品。甜品方面，提拉米苏、意式冰淇淋和意式奶冻等都是享誉全球的意大利甜点。</p>
+                </div>
+                <div class="image-content">
+                    <img src="https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="意大利美食">
+                </div>
+            </div>
+            
+            <div class="food-cards">
+                <div class="food-card">
+                    <img src="https://cdn.pixabay.com/photo/2017/12/09/08/18/pizza-3007395_1280.jpg" alt="披萨">
+                    <div class="food-info">
+                        <h4>披萨</h4>
+                        <p>源自那不勒斯的传统美食，薄底披萨配上新鲜的番茄酱、马苏里拉奶酪和罗勒叶，是意大利最具代表性的食物之一。</p>
+                    </div>
+                </div>
+                <div class="food-card">
+                    <img src="https://images.unsplash.com/photo-1551892374-ecf8754cf8b0?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="意面">
+                    <div class="food-info">
+                        <h4>意大利面</h4>
+                        <p>意大利面的种类繁多，从长条形的意大利细面到管状的通心粉，搭配各种酱料，是意大利餐桌上的主食。</p>
+                    </div>
+                </div>
+                <div class="food-card">
+                    <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="提拉米苏">
+                    <div class="food-info">
+                        <h4>提拉米苏</h4>
+                        <p>经典的意大利甜点，由手指饼干、咖啡、马斯卡彭奶酪和可可粉制成，口感丰富，甜而不腻。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>关于意大利</h3>
+                    <p>意大利共和国是欧洲国家，主要由南欧的亚平宁半岛及两个地中海岛屿西西里岛与撒丁岛所组成。</p>
+                </div>
+                <div class="footer-section">
+                    <h3>快速链接</h3>
+                    <p><a href="#geography" style="color: #fff;">地理</a></p>
+                    <p><a href="#culture" style="color: #fff;">文化</a></p>
+                    <p><a href="#history" style="color: #fff;">历史</a></p>
+                    <p><a href="#attractions" style="color: #fff;">景点</a></p>
+                    <p><a href="#cuisine" style="color: #fff;">美食</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>联系信息</h3>
+                    <p>电子邮件: info@italy-tourism.com</p>
+                    <p>电话: +39 06 1234 5678</p>
+                    <p>地址: 意大利罗马威尼斯广场</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy;  意大利旅游介绍</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 平滑滚动效果
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 50,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // 导航栏高亮效果
+        window.addEventListener('scroll', function() {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            document.querySelectorAll('nav a').forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').substring(1) === current) {
+                    a.classList.add('active');
+                }
+            });
+        });
+        
+        // 图片懒加载效果
+        const images = document.querySelectorAll('.image-content img');
+        
+        const imageOptions = {
+            threshold: 0,
+            rootMargin: "0px 0px 100px 0px"
+        };
+        
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                
+                const img = entry.target;
+                img.src = img.src;
+                img.classList.add('loaded');
+                imageObserver.unobserve(img);
+            });
+        }, imageOptions);
+        
+        images.forEach(img => {
+            imageObserver.observe(img);
+        });
+    </script>
+</body>
+</html>
